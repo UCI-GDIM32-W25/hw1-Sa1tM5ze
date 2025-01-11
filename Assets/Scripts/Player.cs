@@ -48,7 +48,7 @@ public class Player : MonoBehaviour
 
 
         //player planting seeds
-        if(Input.GetKeyUp(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space))
         {
             //call the plantseed method if there are remaining seeds
             if (_numSeeds > 0)
@@ -57,6 +57,12 @@ public class Player : MonoBehaviour
                 _numSeeds--;
                 Debug.Log("you have planted one seed! good job solving global warming");
             }
+        }
+
+        //put on an exciting annoucement when you have planted all the seeds
+        if (_numSeeds <= 0)
+        {
+            _plantCountUI.Annoucing();
         }
     }
 
